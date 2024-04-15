@@ -1,8 +1,37 @@
-# React + Vite
+# usePopcorn
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## TL;DR
 
-Currently, two official plugins are available:
+An app to help users search for their favorite IMDB movies and save them to a watch list with their own ratings.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Live Link
+
+To access the live site, please [click here](https://popcorn.kevinwessa.com)
+
+## Roadmap
+
+The development journey for usePopcorn is outlined as follows:
+
+### Initial Version:
+
+- A simple version with static data
+- A clean UI to demonstrate proof of concept
+
+### Beta Version:
+
+- Mobile responsiveness
+- Configuration with IMDB API for real data usage
+- LocalStorage for saving results
+
+### Post-Beta Plans:
+
+- Authentication so users could save their results
+
+## Technologies Used
+
+This project is crafted with the following technologies:
+
+- **Vite**
+- **React**
+- **Tailwind**
+- **TypeScript**
