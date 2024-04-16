@@ -60,62 +60,72 @@ export default function App() {
         ></input>
         <p className="text- justify-self-end text-lg">Found X results</p>
       </nav>
-      <main className="main">
-        <div className="box">
+      <main className="mt-8 grid grid-flow-col gap-2">
+        <div className="rounded-2xl bg-slate-800">
           <button className="btn-toggle"></button>
           <ul className="list">
-            <li>
-              <img src="https://m.media-amazon.com/images/M/MV5BMWYwZTVlMTgtZWNkMS00OTk4LWI4YjMtMGNlNzA4OWIyOWU4XkEyXkFqcGdeQXVyNjYyMjE4NDY@._V1_.jpg" />
-              <h3>Bo Burnham: Inside</h3>
-              <div>
-                <p>
+            <li className="relative grid grid-cols-2 gap-8">
+              <img
+                className="max-w-32"
+                src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
+              />
+
+              <div className="flex flex-col gap-2">
+                <h3 className="text-xl font-bold">The Dark Knight</h3>
+                <p className="flex gap-2 text-sm">
                   <span>🗓</span>
-                  <span>2021</span>
+                  <span>2003</span>
                 </p>
               </div>
             </li>
           </ul>
         </div>
-        <div className="box">
+        <div className="w-[1/2] rounded-2xl bg-slate-800">
           <button className="btn-toggle"></button>
-          <div className="summary">
-            <h2>Movies you watched</h2>
-            <div>
-              <p>
+          <div className="flex flex-col gap-4">
+            <h2 className="text-3xl font-bold">Your List</h2>
+            <div className="flex gap-2">
+              <p className="flex gap-2 text-sm">
                 <span>#️⃣</span>
-                <span>movies</span>
+                <span>2 movies</span>
               </p>
-              <p>
+              <p className="flex gap-2 text-sm">
                 <span>⭐️</span>
-                <span>IMDB Rating</span>
+                <span>8.5</span>
               </p>
-              <p>
+              <p className="flex gap-2 text-sm">
                 <span>🌟</span>
-                <span>User Rating</span>
+                <span>9.9</span>
               </p>
-              <p>
+              <p className="flex gap-2 text-sm">
                 <span>⏳</span>
-                <span>RunTime</span>
+                <span>24 mins.</span>
               </p>
             </div>
           </div>
           <ul className="list">
             <li>
-              <img src="https://m.media-amazon.com/images/M/MV5BMWYwZTVlMTgtZWNkMS00OTk4LWI4YjMtMGNlNzA4OWIyOWU4XkEyXkFqcGdeQXVyNjYyMjE4NDY@._V1_.jpg" />
-              <h3>Bo Burnham: Inside</h3>
+              <img
+                className="max-w-32"
+                src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
+              />
+
               <div>
-                <p>
-                  <span>⭐️</span>
-                  <span>imdb rating</span>
-                </p>
-                <p>
-                  <span>🌟</span>
-                  <span>user rating</span>
-                </p>
-                <p>
-                  <span>⏳</span>
-                  <span>runtime minutes</span>
-                </p>
+                <h3 className="text-xl font-bold">The Dark Knight</h3>
+                <div className="flex gap-2">
+                  <p className="flex gap-2 text-sm">
+                    <span>⭐️</span>
+                    <span>8.0</span>
+                  </p>
+                  <p className="flex gap-2 text-sm">
+                    <span>🌟</span>
+                    <span>10</span>
+                  </p>
+                  <p className="flex gap-2 text-sm">
+                    <span>⏳</span>
+                    <span>256 mins.</span>
+                  </p>
+                </div>
               </div>
             </li>
           </ul>
