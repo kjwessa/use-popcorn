@@ -60,6 +60,67 @@ export default function App() {
         ></input>
         <p className="text- justify-self-end text-lg">Found X results</p>
       </nav>
+      <main className="main">
+        <div className="box">
+          <button className="btn-toggle"></button>
+          <ul className="list">
+            <li>
+              <img src="https://m.media-amazon.com/images/M/MV5BMWYwZTVlMTgtZWNkMS00OTk4LWI4YjMtMGNlNzA4OWIyOWU4XkEyXkFqcGdeQXVyNjYyMjE4NDY@._V1_.jpg" />
+              <h3>Bo Burnham: Inside</h3>
+              <div>
+                <p>
+                  <span>🗓</span>
+                  <span>2021</span>
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div className="box">
+          <button className="btn-toggle"></button>
+          <div className="summary">
+            <h2>Movies you watched</h2>
+            <div>
+              <p>
+                <span>#️⃣</span>
+                <span>movies</span>
+              </p>
+              <p>
+                <span>⭐️</span>
+                <span>IMDB Rating</span>
+              </p>
+              <p>
+                <span>🌟</span>
+                <span>User Rating</span>
+              </p>
+              <p>
+                <span>⏳</span>
+                <span>RunTime</span>
+              </p>
+            </div>
+          </div>
+          <ul className="list">
+            <li>
+              <img src="https://m.media-amazon.com/images/M/MV5BMWYwZTVlMTgtZWNkMS00OTk4LWI4YjMtMGNlNzA4OWIyOWU4XkEyXkFqcGdeQXVyNjYyMjE4NDY@._V1_.jpg" />
+              <h3>Bo Burnham: Inside</h3>
+              <div>
+                <p>
+                  <span>⭐️</span>
+                  <span>imdb rating</span>
+                </p>
+                <p>
+                  <span>🌟</span>
+                  <span>user rating</span>
+                </p>
+                <p>
+                  <span>⏳</span>
+                  <span>runtime minutes</span>
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </main>
     </div>
   );
 }
