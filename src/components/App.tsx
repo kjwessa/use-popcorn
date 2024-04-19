@@ -1,51 +1,56 @@
+import { useState } from "react";
+
 const tempMovieData = [
   {
     imdbID: "tt0468569",
-    Title: "The Dark Knight",
-    Year: "2008",
-    Poster:
+    title: "The Dark Knight",
+    year: "2008",
+    poster:
       "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
   },
   {
     imdbID: "tt0107048",
-    Title: "Groundhog Day",
-    Year: "1993",
-    Poster:
+    title: "Groundhog Day",
+    year: "1993",
+    poster:
       "https://m.media-amazon.com/images/M/MV5BZWIxNzM5YzQtY2FmMS00Yjc3LWI1ZjUtNGVjMjMzZTIxZTIxXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
   },
   {
-    imdbID: "tt14544192",
-    Title: "Bo Burnham: Inside",
-    Year: "2021",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BMWYwZTVlMTgtZWNkMS00OTk4LWI4YjMtMGNlNzA4OWIyOWU4XkEyXkFqcGdeQXVyNjYyMjE4NDY@._V1_.jpg",
+    imdbID: "tt1745960",
+    title: "Top Gun: Maverick",
+    year: "2022",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LWJkODUtMmVhMjIwMjA1ZmQwXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg",
   },
 ];
 
 const tempWatchedData = [
   {
     imdbID: "tt0468569",
-    Title: "The Dark Knight",
-    Year: "2008",
-    Poster:
+    title: "The Dark Knight",
+    year: "2008",
+    poster:
       "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
     runtime: 152,
     imdbRating: 9.0,
     userRating: 9.9,
   },
   {
-    imdbID: "tt14544192",
-    Title: "Bo Burnham: Inside",
-    Year: "2021",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BMWYwZTVlMTgtZWNkMS00OTk4LWI4YjMtMGNlNzA4OWIyOWU4XkEyXkFqcGdeQXVyNjYyMjE4NDY@._V1_.jpg",
-    runtime: 97,
-    imdbRating: 8.6,
-    userRating: 10,
+    imdbID: "tt1745960",
+    title: "Top Gun: Maverick",
+    year: "2022",
+    poster:
+      "https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LWJkODUtMmVhMjIwMjA1ZmQwXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg",
+    runtime: 130,
+    imdbRating: 8.2,
+    userRating: 9,
   },
 ];
 
 export default function App() {
+  const [movies, setMovies] = useState(tempMovieData);
+  const [watched, setWatched] = useState(tempWatchedData);
+
   return (
     <div className="h-svh bg-slate-900 p-6 text-slate-100">
       <nav className="grid grid-cols-3 items-center rounded-lg bg-indigo-800 p-4">
@@ -64,20 +69,18 @@ export default function App() {
         <div className="rounded-lg bg-slate-800">
           <button className="hidden"></button>
           <ul className="list">
-            <li className="relative grid grid-cols-3 gap-4 border-b-2 border-b-slate-700 px-8 py-4">
-              <img
-                className="col-span-1 max-h-24"
-                src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
-              />
-
-              <div className="col-span-2 flex flex-col gap-2 self-center">
-                <h3 className="text-xl font-bold">The Dark Knight</h3>
-                <p className="flex gap-2 text-sm">
-                  <span>🗓</span>
-                  <span>2003</span>
-                </p>
-              </div>
-            </li>
+            {movies?.map((movie) => (
+              <li className="relative grid grid-cols-3 gap-4 border-b-2 border-b-slate-700 px-8 py-4">
+                <img className="col-span-1 max-h-24" src={movie.poster} />
+                <div className="col-span-2 flex flex-col gap-2 self-center">
+                  <h3 className="text-xl font-bold">{movie.title}</h3>
+                  <p className="flex gap-2 text-sm">
+                    <span>🗓</span>
+                    <span>{movie.year}</span>
+                  </p>
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="w-[1/2] rounded-lg bg-slate-800">
@@ -104,29 +107,28 @@ export default function App() {
             </div>
           </div>
           <ul className="list">
-            <li className="grid grid-cols-3 gap-2 px-8 py-4">
-              <img
-                className="col-span-1 max-h-24"
-                src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
-              />
-              <div className="col-span-2 self-center">
-                <h3 className="text-xl font-bold">The Dark Knight</h3>
-                <div className="flex gap-2">
-                  <p className="flex gap-2 text-sm">
-                    <span>⭐️</span>
-                    <span>8.0</span>
-                  </p>
-                  <p className="flex gap-2 text-sm">
-                    <span>🌟</span>
-                    <span>10</span>
-                  </p>
-                  <p className="flex gap-2 text-sm">
-                    <span>⏳</span>
-                    <span>256 mins.</span>
-                  </p>
+            {watched?.map((movie) => (
+              <li className="grid grid-cols-3 gap-2 px-8 py-4">
+                <img className="col-span-1 max-h-24" src={movie.poster} />
+                <div className="col-span-2 self-center">
+                  <h3 className="text-xl font-bold">{movie.title}</h3>
+                  <div className="flex gap-2">
+                    <p className="flex gap-2 text-sm">
+                      <span>⭐️</span>
+                      <span>{movie.imdbRating}</span>
+                    </p>
+                    <p className="flex gap-2 text-sm">
+                      <span>🌟</span>
+                      <span>{movie.userRating}</span>
+                    </p>
+                    <p className="flex gap-2 text-sm">
+                      <span>⏳</span>
+                      <span>{movie.runtime} mins.</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </li>
+              </li>
+            ))}
           </ul>
         </div>
       </main>
