@@ -48,6 +48,7 @@ const tempWatchedData = [
 ];
 
 export default function App() {
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
 
@@ -59,9 +60,11 @@ export default function App() {
           <h1 className="text-2xl font-semibold">usePopcorn</h1>
         </div>
         <input
-          className="min-w-44  rounded-2xl border-none px-6 py-3 placeholder:text-slate-600 focus:text-slate-800 focus:outline-none focus-visible:text-slate-700"
+          className="min-w-44 rounded-2xl border-none px-6 py-3 text-slate-600 placeholder:text-slate-600 focus:text-slate-800 focus:outline-none focus-visible:text-slate-700"
           type="text"
           placeholder="Search movies..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         ></input>
         <p className="text- justify-self-end text-lg">Found X results</p>
       </nav>
@@ -70,7 +73,10 @@ export default function App() {
           <button className="hidden"></button>
           <ul className="list">
             {movies?.map((movie) => (
-              <li className="relative grid grid-cols-3 gap-4 border-b-2 border-b-slate-700 px-8 py-4">
+              <li
+                className="relative grid grid-cols-3 gap-4 border-b-2 border-b-slate-700 px-8 py-4"
+                key={movie.imdbID}
+              >
                 <img className="col-span-1 max-h-24" src={movie.poster} />
                 <div className="col-span-2 flex flex-col gap-2 self-center">
                   <h3 className="text-xl font-bold">{movie.title}</h3>
@@ -108,7 +114,10 @@ export default function App() {
           </div>
           <ul className="list">
             {watched?.map((movie) => (
-              <li className="grid grid-cols-3 gap-2 px-8 py-4">
+              <li
+                className="grid grid-cols-3 gap-2 px-8 py-4"
+                key={movie.imdbID}
+              >
                 <img className="col-span-1 max-h-24" src={movie.poster} />
                 <div className="col-span-2 self-center">
                   <h3 className="text-xl font-bold">{movie.title}</h3>
