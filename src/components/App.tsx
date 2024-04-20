@@ -47,10 +47,21 @@ const tempWatchedData = [
   },
 ];
 
+const average = (arr: number[]): number => {
+  const sum = arr.reduce((acc, cur) => acc + cur, 0);
+  return arr.length > 0 ? sum / arr.length : 0;
+};
+
 export default function App() {
+  //* State
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
+
+  //* Functions
+  const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
+  const avgUserRating = average(watched.map((movie) => movie.userRating));
+  const avgRunTime = average(watched.map((movie) => movie.runtime));
 
   return (
     <div className="h-svh bg-slate-900 p-6 text-slate-100">
@@ -66,7 +77,9 @@ export default function App() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         ></input>
-        <p className="text- justify-self-end text-lg">Found X results</p>
+        <p className="text- justify-self-end text-lg">
+          Found {movies.length} results
+        </p>
       </nav>
       <main className="mt-2 grid grid-cols-2 gap-2">
         <div className="rounded-lg bg-slate-800">
@@ -96,19 +109,19 @@ export default function App() {
             <div className="flex gap-2 pl-2">
               <p className="flex gap-2 text-sm">
                 <span>#️⃣</span>
-                <span>2 movies</span>
+                <span>{watched.length} movies</span>
               </p>
               <p className="flex gap-2 text-sm">
                 <span>⭐️</span>
-                <span>8.5</span>
+                <span>{avgImdbRating}</span>
               </p>
               <p className="flex gap-2 text-sm">
                 <span>🌟</span>
-                <span>9.9</span>
+                <span>{avgUserRating}</span>
               </p>
               <p className="flex gap-2 text-sm">
                 <span>⏳</span>
-                <span>24 mins.</span>
+                <span>{avgRunTime} mins.</span>
               </p>
             </div>
           </div>
