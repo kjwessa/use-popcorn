@@ -52,6 +52,18 @@ const average = (arr: number[]): number => {
   return arr.length > 0 ? sum / arr.length : 0;
 };
 
+//* App Components
+
+export default function App() {
+  return (
+    <div className="h-svh bg-slate-900 p-6 text-slate-100">
+      <NavBar />
+      <Main />
+    </div>
+  );
+}
+
+//* NavBar Components
 function NavBar() {
   return (
     <nav className="grid grid-cols-3 items-center rounded-lg bg-indigo-800 p-4">
@@ -88,7 +100,8 @@ function NumResults() {
   return <p className="text- justify-self-end text-lg">Found X results</p>;
 }
 
-export default function App() {
+//* Main Components
+function Main() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
   const [btnMoviesOpen, setBtnMoviesOpen] = useState(true);
@@ -98,97 +111,93 @@ export default function App() {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
   const avgUserRating = average(watched.map((movie) => movie.userRating));
   const avgRunTime = average(watched.map((movie) => movie.runtime));
-
   return (
-    <div className="h-svh bg-slate-900 p-6 text-slate-100">
-      <NavBar />
-      <main className="mt-2 grid grid-cols-2 gap-2">
-        <div className="relative rounded-lg bg-slate-800 pt-6">
-          <button
-            className="absolute right-1 top-1 z-10 h-6 w-6 rounded-full bg-slate-50 text-slate-800"
-            onClick={() => setBtnMoviesOpen((open) => !open)}
-          >
-            {btnMoviesOpen ? "+" : "-"}
-          </button>
-          {btnMoviesOpen && (
-            <ul className="list">
-              {movies?.map((movie) => (
-                <li
-                  className="relative grid grid-cols-3 gap-4 border-b-2 border-b-slate-700 px-8 py-4"
-                  key={movie.imdbID}
-                >
-                  <img className="col-span-1 max-h-24" src={movie.poster} />
-                  <div className="col-span-2 flex flex-col gap-2 self-center">
-                    <h3 className="text-xl font-bold">{movie.title}</h3>
+    <main className="mt-2 grid grid-cols-2 gap-2">
+      <div className="relative rounded-lg bg-slate-800 pt-6">
+        <button
+          className="absolute right-1 top-1 z-10 h-6 w-6 rounded-full bg-slate-50 text-slate-800"
+          onClick={() => setBtnMoviesOpen((open) => !open)}
+        >
+          {btnMoviesOpen ? "+" : "-"}
+        </button>
+        {btnMoviesOpen && (
+          <ul className="list">
+            {movies?.map((movie) => (
+              <li
+                className="relative grid grid-cols-3 gap-4 border-b-2 border-b-slate-700 px-8 py-4"
+                key={movie.imdbID}
+              >
+                <img className="col-span-1 max-h-24" src={movie.poster} />
+                <div className="col-span-2 flex flex-col gap-2 self-center">
+                  <h3 className="text-xl font-bold">{movie.title}</h3>
+                  <p className="flex gap-2 text-sm">
+                    <span>🗓</span>
+                    <span>{movie.year}</span>
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <div className="relative w-[1/2] rounded-lg bg-slate-800">
+        <button
+          className="absolute right-1 top-1 z-10 h-6 w-6 rounded-full bg-slate-50 text-slate-800"
+          onClick={() => setBtnWatchedOpen((open) => !open)}
+        >
+          {btnWatchedOpen ? "+" : "-"}
+        </button>
+        <div className="flex flex-col gap-2 rounded-lg bg-slate-700 p-4 ">
+          <h2 className="text-2xl font-bold">Your List</h2>
+          <div className="flex gap-2 pl-2">
+            <p className="flex gap-2 text-sm">
+              <span>#️⃣</span>
+              <span>{watched.length} movies</span>
+            </p>
+            <p className="flex gap-2 text-sm">
+              <span>⭐️</span>
+              <span>{avgImdbRating}</span>
+            </p>
+            <p className="flex gap-2 text-sm">
+              <span>🌟</span>
+              <span>{avgUserRating}</span>
+            </p>
+            <p className="flex gap-2 text-sm">
+              <span>⏳</span>
+              <span>{avgRunTime} mins.</span>
+            </p>
+          </div>
+        </div>
+        {btnWatchedOpen && (
+          <ul className="list">
+            {watched?.map((movie) => (
+              <li
+                className="grid grid-cols-3 gap-2 px-8 py-4"
+                key={movie.imdbID}
+              >
+                <img className="col-span-1 max-h-24" src={movie.poster} />
+                <div className="col-span-2 self-center">
+                  <h3 className="text-xl font-bold">{movie.title}</h3>
+                  <div className="flex gap-2">
                     <p className="flex gap-2 text-sm">
-                      <span>🗓</span>
-                      <span>{movie.year}</span>
+                      <span>⭐️</span>
+                      <span>{movie.imdbRating}</span>
+                    </p>
+                    <p className="flex gap-2 text-sm">
+                      <span>🌟</span>
+                      <span>{movie.userRating}</span>
+                    </p>
+                    <p className="flex gap-2 text-sm">
+                      <span>⏳</span>
+                      <span>{movie.runtime} mins.</span>
                     </p>
                   </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <div className="relative w-[1/2] rounded-lg bg-slate-800">
-          <button
-            className="absolute right-1 top-1 z-10 h-6 w-6 rounded-full bg-slate-50 text-slate-800"
-            onClick={() => setBtnWatchedOpen((open) => !open)}
-          >
-            {btnWatchedOpen ? "+" : "-"}
-          </button>
-          <div className="flex flex-col gap-2 rounded-lg bg-slate-700 p-4 ">
-            <h2 className="text-2xl font-bold">Your List</h2>
-            <div className="flex gap-2 pl-2">
-              <p className="flex gap-2 text-sm">
-                <span>#️⃣</span>
-                <span>{watched.length} movies</span>
-              </p>
-              <p className="flex gap-2 text-sm">
-                <span>⭐️</span>
-                <span>{avgImdbRating}</span>
-              </p>
-              <p className="flex gap-2 text-sm">
-                <span>🌟</span>
-                <span>{avgUserRating}</span>
-              </p>
-              <p className="flex gap-2 text-sm">
-                <span>⏳</span>
-                <span>{avgRunTime} mins.</span>
-              </p>
-            </div>
-          </div>
-          {btnWatchedOpen && (
-            <ul className="list">
-              {watched?.map((movie) => (
-                <li
-                  className="grid grid-cols-3 gap-2 px-8 py-4"
-                  key={movie.imdbID}
-                >
-                  <img className="col-span-1 max-h-24" src={movie.poster} />
-                  <div className="col-span-2 self-center">
-                    <h3 className="text-xl font-bold">{movie.title}</h3>
-                    <div className="flex gap-2">
-                      <p className="flex gap-2 text-sm">
-                        <span>⭐️</span>
-                        <span>{movie.imdbRating}</span>
-                      </p>
-                      <p className="flex gap-2 text-sm">
-                        <span>🌟</span>
-                        <span>{movie.userRating}</span>
-                      </p>
-                      <p className="flex gap-2 text-sm">
-                        <span>⏳</span>
-                        <span>{movie.runtime} mins.</span>
-                      </p>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </main>
-    </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </main>
   );
 }
