@@ -52,9 +52,28 @@ const average = (arr: number[]): number => {
   return arr.length > 0 ? sum / arr.length : 0;
 };
 
-export default function App() {
-  //* State
+function NavBar() {
   const [query, setQuery] = useState("");
+
+  return (
+    <nav className="grid grid-cols-3 items-center rounded-lg bg-indigo-800 p-4">
+      <div className="flex items-center gap-2">
+        <span role="img">🍿</span>
+        <h1 className="text-2xl font-semibold">usePopcorn</h1>
+      </div>
+      <input
+        className="min-w-44 rounded-2xl border-none px-6 py-3 text-slate-600 placeholder:text-slate-600 focus:text-slate-800 focus:outline-none focus-visible:text-slate-700"
+        type="text"
+        placeholder="Search movies..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      ></input>
+      <p className="text- justify-self-end text-lg">Found X results</p>
+    </nav>
+  );
+}
+
+export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
   const [btnMoviesOpen, setBtnMoviesOpen] = useState(true);
@@ -67,22 +86,7 @@ export default function App() {
 
   return (
     <div className="h-svh bg-slate-900 p-6 text-slate-100">
-      <nav className="grid grid-cols-3 items-center rounded-lg bg-indigo-800 p-4">
-        <div className="flex items-center gap-2">
-          <span role="img">🍿</span>
-          <h1 className="text-2xl font-semibold">usePopcorn</h1>
-        </div>
-        <input
-          className="min-w-44 rounded-2xl border-none px-6 py-3 text-slate-600 placeholder:text-slate-600 focus:text-slate-800 focus:outline-none focus-visible:text-slate-700"
-          type="text"
-          placeholder="Search movies..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        ></input>
-        <p className="text- justify-self-end text-lg">
-          Found {movies.length} results
-        </p>
-      </nav>
+      <NavBar />
       <main className="mt-2 grid grid-cols-2 gap-2">
         <div className="relative rounded-lg bg-slate-800 pt-6">
           <button
