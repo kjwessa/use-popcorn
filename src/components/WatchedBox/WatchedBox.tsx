@@ -1,10 +1,9 @@
 import { useState } from "react";
-import tempWatchedData from "../../data/tempWatchedData";
 import WatchedList from "./WatchedList";
 import WatchedSummary from "./WatchedSummary";
+import { WatchedMovieDataProps } from "../../types";
 
-function WatchedBox() {
-  const [watched, setWatched] = useState(tempWatchedData);
+function WatchedBox({ watched }: { watched: WatchedMovieDataProps[] }) {
   const [btnWatchedOpen, setBtnWatchedOpen] = useState(true);
 
   return (

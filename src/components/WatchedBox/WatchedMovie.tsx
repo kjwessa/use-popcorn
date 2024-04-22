@@ -1,12 +1,4 @@
-type WatchedMovieDataProps = {
-  imdbID: string;
-  title: string;
-  year: string;
-  poster: string;
-  runtime: number;
-  imdbRating: number;
-  userRating: number;
-};
+import { WatchedMovieDataProps } from "../../types";
 
 function WatchedMovie({ movie }: { movie: WatchedMovieDataProps }) {
   return (
