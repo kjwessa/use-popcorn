@@ -1,12 +1,4 @@
-type WatchedMovieDataProps = {
-  imdbID: string;
-  title: string;
-  year: string;
-  poster: string;
-  runtime: number;
-  imdbRating: number;
-  userRating: number;
-};
+import { WatchedMovieDataProps } from "../../types";
 
 const average = (arr: number[]): number => {
   const sum = arr.reduce((acc, cur) => acc + cur, 0);

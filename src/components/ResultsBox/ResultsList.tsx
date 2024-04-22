@@ -1,10 +1,8 @@
 import { useState } from "react";
-import tempMovieData from "../../data/tempMovieData";
 import ResultsMovie from "./ResultsMovie";
+import { ResultsMovieDataProps } from "../../types";
 
-function ResultsList() {
-  const [movies, setMovies] = useState(tempMovieData);
-
+function ResultsList({ movies }: { movies: ResultsMovieDataProps[] }) {
   return (
     <ul className="list">
       {movies?.map((movie) => (

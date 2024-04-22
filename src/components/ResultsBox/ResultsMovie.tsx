@@ -1,9 +1,4 @@
-type ResultsMovieDataProps = {
-  imdbID: string;
-  title: string;
-  year: string;
-  poster: string;
-};
+import { ResultsMovieDataProps } from "../../types";
 
 function ResultsMovie({ movie }: { movie: ResultsMovieDataProps }) {
   return (
