@@ -8,6 +8,9 @@ import Logo from "../NavBar/Logo";
 import Search from "../NavBar/Search";
 import NumResults from "../NavBar/NumResults";
 import Main from "../Main/Main";
+import ResultsBox from "../ResultsBox/ResultsBox";
+import WatchedBox from "../WatchedBox/WatchedBox";
+import ResultsList from "../ResultsBox/ResultsList";
 
 export default function App() {
   const [movies, setMovies] = useState<ResultsMovieDataProps[]>(tempMovieData);
@@ -21,7 +24,12 @@ export default function App() {
         <Search />
         <NumResults movies={movies} />
       </NavBar>
-      <Main movies={movies} watched={watched} />
+      <Main>
+        <ResultsBox>
+          <ResultsList movies={movies} />
+        </ResultsBox>
+        <WatchedBox watched={watched} />
+      </Main>
     </div>
   );
 }
