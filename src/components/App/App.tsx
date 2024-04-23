@@ -4,6 +4,9 @@ import tempWatchedData from "../../data/tempWatchedData";
 import { ResultsMovieDataProps } from "../../types";
 import { WatchedMovieDataProps } from "../../types";
 import NavBar from "../NavBar/NavBar";
+import Logo from "../NavBar/Logo";
+import Search from "../NavBar/Search";
+import NumResults from "../NavBar/NumResults";
 import Main from "../Main/Main";
 
 export default function App() {
@@ -13,7 +16,11 @@ export default function App() {
 
   return (
     <div className="h-svh bg-slate-900 p-6 text-slate-100">
-      <NavBar watched={watched} />
+      <NavBar>
+        <Logo />
+        <Search />
+        <NumResults movies={movies} />
+      </NavBar>
       <Main movies={movies} watched={watched} />
     </div>
   );

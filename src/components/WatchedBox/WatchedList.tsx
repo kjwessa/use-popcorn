@@ -4,7 +4,9 @@ import { WatchedMovieDataProps } from "../../types";
 function WatchedList({ watched }: { watched: WatchedMovieDataProps[] }) {
   return (
     <ul className="list">
-      {watched?.map((movie) => <WatchedMovie movie={movie} />)}
+      {watched?.map((movie) => (
+        <WatchedMovie movie={movie} key={movie.imdbID} />
+      ))}
     </ul>
   );
 }

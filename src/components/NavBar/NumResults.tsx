@@ -1,9 +1,9 @@
-import { WatchedMovieDataProps } from "../../types";
+import { ResultsMovieDataProps } from "../../types";
 
-function NumResults({ watched }: { watched: WatchedMovieDataProps[] }) {
+function NumResults({ movies }: { movies: ResultsMovieDataProps[] }) {
   return (
     <p className="text- justify-self-end text-lg">
-      Found {watched.length} results
+      Found {movies.length} results
     </p>
   );
 }
