@@ -1,8 +1,6 @@
 import { useState } from "react";
-import ResultsList from "./ResultsList";
-import { ResultsMovieDataProps } from "../../types";
 
-function ResultsBox({ movies }: { movies: ResultsMovieDataProps[] }) {
+function ResultsBox({ children }: React.PropsWithChildren<{}>) {
   const [btnMoviesOpen, setBtnMoviesOpen] = useState(true);
 
   return (
@@ -13,7 +11,7 @@ function ResultsBox({ movies }: { movies: ResultsMovieDataProps[] }) {
       >
         {btnMoviesOpen ? "+" : "-"}
       </button>
-      {btnMoviesOpen && <ResultsList movies={movies} />}
+      {btnMoviesOpen && children}
     </div>
   );
 }
