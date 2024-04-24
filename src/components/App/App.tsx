@@ -12,7 +12,7 @@ import Box from "../Box/Box";
 import WatchedSummary from "../Watched/WatchedSummary";
 import WatchedList from "../Watched/WatchedList";
 import ResultsList from "../Results/ResultsList";
-import StarRating from "../StarRating/StarRating";
+import StarRating from "../Star/StarRating";
 
 function App() {
   const [movies, setMovies] = useState<ResultsMovieDataProps[]>(tempMovieData);

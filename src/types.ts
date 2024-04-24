@@ -18,3 +18,8 @@ export type WatchedMovieDataProps = {
 export type StarRatingProps = {
   maxRating?: number;
 };
+
+export type StarProps = {
+  onRate: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  isFull: boolean;
+};
