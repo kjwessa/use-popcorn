@@ -14,3 +14,7 @@ export type WatchedMovieDataProps = {
   imdbRating: number;
   userRating: number;
 };
+
+export type StarRatingProps = {
+  maxRating?: number;
+};
