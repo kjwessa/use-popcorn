@@ -1,13 +1,15 @@
 import { StarProps } from "../../types";
 
-function Star({ onRate, isFull }: StarProps) {
+function Star({ full, onStarRate, onHoverIn, onHoverOut }: StarProps) {
   return (
     <span
       className="block h-6 w-6 cursor-pointer"
-      onClick={onRate}
+      onClick={onStarRate}
+      onMouseEnter={onHoverIn}
+      onMouseLeave={onHoverOut}
       role="button"
     >
-      {isFull ? (
+      {full ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"

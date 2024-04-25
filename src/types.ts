@@ -20,6 +20,8 @@ export type StarRatingProps = {
 };
 
 export type StarProps = {
-  onRate: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  isFull: boolean;
+  full: boolean;
+  onStarRate: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onHoverIn: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onHoverOut: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };

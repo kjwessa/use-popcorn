@@ -4,23 +4,26 @@ import Star from "./Star";
 
 function StarRating({ maxRating = 5 }: StarRatingProps) {
   const [rating, setRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
 
-  function handleRating(rating: number) {
+  function handleSelectRating(rating: number) {
     setRating(rating);
   }
 
   return (
-    <div className="flex flex-row justify-center gap-4 pl-4">
+    <div className="flex flex-row gap-4 pl-4">
       <div className="line-h flex flex-row gap-1">
         {Array.from({ length: maxRating }, (_, i) => (
           <Star
             key={i}
-            onRate={() => handleRating(i + 1)}
-            isFull={rating >= i + 1}
+            full={hoverRating ? hoverRating >= i + 1 : rating >= i + 1}
+            onStarRate={() => handleSelectRating(i + 1)}
+            onHoverIn={() => setHoverRating(i + 1)}
+            onHoverOut={() => setHoverRating(0)}
           />
         ))}
       </div>
-      <p>{rating || "  "}</p>
+      <p>{hoverRating || rating || "  "}</p>
     </div>
   );
 }
