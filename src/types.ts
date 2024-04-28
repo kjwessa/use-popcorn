@@ -14,3 +14,14 @@ export type WatchedMovieDataProps = {
   imdbRating: number;
   userRating: number;
 };
+
+export type StarRatingProps = {
+  maxRating?: number;
+};
+
+export type StarProps = {
+  full: boolean;
+  onStarRate: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onHoverIn: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onHoverOut: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};

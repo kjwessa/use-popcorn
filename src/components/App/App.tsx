@@ -12,8 +12,9 @@ import Box from "../Box/Box";
 import WatchedSummary from "../Watched/WatchedSummary";
 import WatchedList from "../Watched/WatchedList";
 import ResultsList from "../Results/ResultsList";
+import StarRating from "../Star/StarRating";
 
-export default function App() {
+function App() {
   const [movies, setMovies] = useState<ResultsMovieDataProps[]>(tempMovieData);
   const [watched, setWatched] =
     useState<WatchedMovieDataProps[]>(tempWatchedData);
@@ -37,3 +38,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
