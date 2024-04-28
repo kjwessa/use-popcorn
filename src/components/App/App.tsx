@@ -33,7 +33,6 @@ function App() {
         <Box>
           <WatchedSummary watched={watched} />
           <WatchedList watched={watched} />
-          <StarRating />
         </Box>
       </Main>
     </div>
