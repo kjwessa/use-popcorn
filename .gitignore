@@ -23,5 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-# Million Lint
-.million
+# Claude Code
+.claude
