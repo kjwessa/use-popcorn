@@ -19,10 +19,10 @@ To access the live site, please [click here](https://popcorn.kevinwessa.com)
 
 ## Tech Stack
 
-- **Vite 5** - Next-generation frontend tooling with instant HMR
-- **React 18** - UI library with hooks
+- **Vite 7** - Next-generation frontend tooling with instant HMR
+- **React 19** - UI library with modern hooks and concurrent features
 - **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS** - Utility-first CSS framework
+- **Tailwind CSS 4** - Modern utility-first CSS framework with native CSS layer system
 - **Biome** - Fast linter and formatter for JavaScript/TypeScript
 - **pnpm** - Fast, disk space efficient package manager
 - **Cloudflare Workers** - Edge deployment with Workers Static Assets
